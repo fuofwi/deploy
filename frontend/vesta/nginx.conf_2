@@ -1,0 +1,14 @@
+server {
+  listen 80;
+  location / {
+  root /usr/app/build;
+  index index.html index.htm; try_files $uri $uri/ /index.html;
+}
+  location /api/recommend {
+  proxy_pass http://15.165.55.54:8000/api/recommend; 
+  }
+  location /api {
+  proxy_pass http://15.165.55.54:8000/api; 
+  }
+  
+}
